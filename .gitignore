@@ -1,0 +1,13 @@
+node_modules/
+dist/
+release/
+release-branded/
+release-fixed/
+prepackaged-win/
+design-preview/
+.gradle/
+build/
+local.properties
+*.log
+*.tmp
+*.bak

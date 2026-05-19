@@ -1,0 +1,71 @@
+{
+  "name": "hommic-print-daemon",
+  "version": "0.1.1",
+  "author": "Hommic",
+  "description": "Windows-first Hommic Print Engine desktop daemon with tray UI and EXE packaging.",
+  "private": true,
+  "type": "commonjs",
+  "main": "dist/main/main.js",
+  "scripts": {
+    "build": "tsc --project tsconfig.json && node scripts/build-renderer.mjs && node scripts/copy-static.mjs",
+    "start": "electron .",
+    "dev": "npm run build && electron .",
+    "pack:dir": "npm run build && electron-builder --dir",
+    "dist:win": "npm run build && electron-builder --win nsis",
+    "release:manifest": "node scripts/build-release-manifest.mjs"
+  },
+  "build": {
+    "appId": "com.hommic.printdaemon",
+    "productName": "Hommic Print Daemon",
+    "compression": "maximum",
+    "electronLanguages": [
+      "en-US",
+      "en-GB"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "win": {
+      "icon": "build/icon.ico",
+      "signAndEditExecutable": false,
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Hommic Print Daemon",
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "installerHeaderIcon": "build/icon.ico"
+    }
+  },
+  "dependencies": {
+    "electron-updater": "^6.8.3",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "electron": "^37.2.0",
+    "electron-builder": "^26.0.12",
+    "esbuild": "^0.25.9",
+    "png-to-ico": "^2.1.8",
+    "typescript": "^5.9.2"
+  }
+}
