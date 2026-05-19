@@ -1,6 +1,0 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Theme.HommicPrintConnector" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:statusBarColor">#FFF4F6</item>
-        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
-    </style>
-</resources>

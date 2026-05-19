@@ -1,5 +1,0 @@
-<resources>
-    <string name="app_name">Hommic Print Connector</string>
-    <string name="foreground_notification_title">Hommic Print Connector</string>
-    <string name="foreground_notification_text">Listening for live print jobs</string>
-</resources>
